@@ -29,6 +29,8 @@ app.use (req, res, next) ->
 # Serve Static files from public/
 app.use express.static('public')
 
+(require './torrent-store')(app)
+
 # Listen on App port
 listener = app.listen process.env.PORT or 3001, ->
   console.log('Your app is listening on port ' + listener.address().port)

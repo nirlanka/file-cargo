@@ -12,9 +12,12 @@
     "body-parser": "^1.19.0",
     "browserify-middleware": "^8.1.1",
     "coffeeify": "^3.0.1",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "webtorrent": "^0.107.7"
   },
   "devDependencies": {
-    "coffeescript": "^2.4.1"
+    "cash-dom": "^4.1.5",
+    "coffeescript": "^2.4.1",
+    "drag-drop": "^5.0.1"
   }
 }
