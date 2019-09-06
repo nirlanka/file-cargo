@@ -8,12 +8,23 @@ console.log 'Leach script loaded.'
 ($ 'button#download').on 'click', (event) ->
     console.log 'Trying to leach.'
 
+    files.forEach (f) ->
+        f.getBlob (err, blob) ->
+            url = URL.createObjectURL blob
+            a = document.createElement 'a'
+            a.download = f.name
+            a.href = url
+            a.click()
+
 magnet = window.location.hash.replace '#', ''
+
+files = []
 
 if magnet != ''
     ($ 'button#download').prop 'disabled', false
 
     client = new webtorrent()
     client.add magnet, (torrent) ->
-        ($ 'ul#files').append ([torrent.files...].map (f) -> '<li>' + f.name + '</li>').join ''
+        files = [torrent.files...]
+        ($ 'ul#files').append (files.map (f) -> '<li>' + f.name + '</li>').join ''
     
