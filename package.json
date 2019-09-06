@@ -1,0 +1,20 @@
+{
+  "name": "coffee-site",
+  "version": "1.0.0",
+  "description": "Base template for Coffeescript server and front-end",
+  "main": "server.coffee",
+  "scripts": {
+    "start": "coffee server.coffee"
+  },
+  "author": "Nir Lanka",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "browserify-middleware": "^8.1.1",
+    "coffeeify": "^3.0.1",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "coffeescript": "^2.4.1"
+  }
+}
