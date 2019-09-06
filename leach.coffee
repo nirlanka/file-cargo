@@ -21,10 +21,10 @@ magnet = window.location.hash.replace '#', ''
 files = []
 
 if magnet != ''
-    ($ 'button#download').prop 'disabled', false
-
     client = new webtorrent()
     client.add magnet, (torrent) ->
         files = [torrent.files...]
         ($ 'ul#files').append (files.map (f) -> '<li>' + f.name + '</li>').join ''
+        
+        ($ 'button#download').prop 'disabled', false
     

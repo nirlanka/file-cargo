@@ -11,7 +11,8 @@ drag_drop 'body', (files) ->
             ($ 'ul#magnets').append """
                 <li>
                     <div><strong>#{files[0].name}</strong></div>
-                    <div><code>#{torrent.magnetURI}</code></div>
+                    <!--div><code>#{torrent.magnetURI}</code></div-->
+                    <div><a href="download.html##{torrent.magnetURI}">Download</a></div>
                 </li>
             """
         else
@@ -20,7 +21,8 @@ drag_drop 'body', (files) ->
                     <ul>
                         #{([files...].map (f) -> '<li>' + f.name + '</li>').join ''}
                     </ul>
-                    <div><code>#{torrent.magnetURI}</code></div>
+                    <!--div><code>#{torrent.magnetURI}</code></div-->
+                    <div><a href="download.html##{torrent.magnetURI}">Download</a></div>
                 </li>
             """
         
