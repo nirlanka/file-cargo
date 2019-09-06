@@ -2,7 +2,7 @@ webtorrent = require "webtorrent"
 drag_drop = require "drag-drop"
 $ = require "cash-dom"
 
-console.log 'Script loaded.'
+console.log 'Seeder script loaded.'
 
 drag_drop 'body', (files) ->
     client = new webtorrent()

@@ -13,7 +13,8 @@ browserify = require('browserify-middleware')
 browserify.settings
   transform: ['coffeeify']
   extensions: ['.coffee', '.litcoffee']
-app.use '/client.js', browserify(__dirname + '/client.coffee')
+app.use '/seeder.js', browserify(__dirname + '/seeder.coffee')
+app.use '/leach.js', browserify(__dirname + '/leach.coffee')
 
 # CORS - Allow pages from any domain to make requests to our API
 app.use (req, res, next) ->

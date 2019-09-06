@@ -14,13 +14,15 @@
       <h1>
         live torrent
       </h1>
-      <p>
-        Drag-and-drop one or many files here to serve.
-      </p>
+      <p id="magnet-status"></p>
     </header>
 
     <section>
-      <ul id="magnets"></ul>
+      <div><code id="magnet"></code></div>
+      
+      <ul id="files"></ul>
+
+      <button id="download">Download</button>
     </section>
 
     <div>&nbsp;</div>
@@ -29,7 +31,7 @@
       &copy; Nir Lanka 2019
     </footer>
 
-    <script src="/seeder.js"></script>
+    <script src="/leach.js"></script>
 
   </body>
 </html>
