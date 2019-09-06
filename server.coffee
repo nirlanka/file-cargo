@@ -8,14 +8,6 @@ bodyParser = require "body-parser"
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-# Configure browserify middleware to serve client.coffee as client.js
-browserify = require('browserify-middleware')
-browserify.settings
-  transform: ['coffeeify']
-  extensions: ['.coffee', '.litcoffee']
-app.use '/seeder.js', browserify(__dirname + '/seeder.coffee')
-app.use '/leach.js', browserify(__dirname + '/leach.coffee')
-
 # CORS - Allow pages from any domain to make requests to our API
 app.use (req, res, next) ->
   res.header("Access-Control-Allow-Origin", "*")
