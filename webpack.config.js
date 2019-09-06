@@ -22,5 +22,16 @@ module.exports = {
     },
     node: {
         fs: 'empty'
-    }
+    },
+    optimization: {
+        splitChunks: {
+            chunks: 'all',
+            cacheGroups: {
+                vendor: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'libs'
+                }
+            }
+        },
+    },
 };
