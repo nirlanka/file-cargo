@@ -12,7 +12,7 @@ drag_drop 'body', (files) ->
                 <li>
                     <div><strong>#{files[0].name}</strong></div>
                     <!--div><code>#{torrent.magnetURI}</code></div-->
-                    <div><a href="download.html##{torrent.magnetURI}">Download</a></div>
+                    <div><a href="download.html##{torrent.magnetURI}">Right-click and copy URL for download</a></div>
                 </li>
             """
         else
@@ -22,7 +22,7 @@ drag_drop 'body', (files) ->
                         #{([files...].map (f) -> '<li>' + f.name + '</li>').join ''}
                     </ul>
                     <!--div><code>#{torrent.magnetURI}</code></div-->
-                    <div><a href="download.html##{torrent.magnetURI}">Download</a></div>
+                    <div><a href="download.html##{torrent.magnetURI}">Right-click and copy URL for download</a></div>
                 </li>
             """
         
