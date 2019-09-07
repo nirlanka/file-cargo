@@ -26,16 +26,20 @@ seed_files = (files) ->
             ($ 'ul#magnets').html """
                 <li>
                     <div><strong>#{files[0].name}</strong></div>
-                    <div><a href="download.html##{torrent.magnetURI}">Right-click and copy URL for download</a></div>
+                    <br>
+                    <p>Copy the link, or tap to share</p>
+                    <div class='download-url'><a href="download.html##{torrent.magnetURI}"><code>#{window.location.hostname}/download.html##{torrent.magnetURI.substr 0, 45}...</code></a></div>
                 </li>
             """
         else
             ($ 'ul#magnets').html """
                 <li>
-                    <ul>
-                        #{([files...].map (f) -> '<li>' + f.name + '</li>').join ''}
+                    <ul id='magnets-inner'>
+                        #{([files...].map (f) -> '<li><strong>' + f.name + '</strong></li>').join ''}
                     </ul>
-                    <div><a href="download.html##{torrent.magnetURI}">Right-click and copy URL for download</a></div>
+                    <br>
+                    <p>Copy the link, or tap to share</p>
+                    <div class='download-url'><a href="download.html##{torrent.magnetURI}"><code>#{window.location.hostname}/download.html##{torrent.magnetURI.substr 0, 45}...</code></a></div>
                 </li>
             """
       
@@ -49,16 +53,18 @@ drag_drop 'body', seed_files
 ($ 'button#file-select').on 'click', () ->
     ($ 'input#file-input')[0].click()
 
-# status_html = () ->
-#     """
-#     <div>#{__torrent.numPeers} peers online</div>
-#     <div>Uploaded #{util.human_file_size __torrent.uploaded}</div>
-#     <div>Uploading at #{util.human_file_size __torrent.uploadSpeed}/s</div>
-#     """
+status_html = () ->
+    percentage = __torrent?.uploaded/total_size*100
+    """
+    <p>Opened by #{__torrent?.numPeers} peers</p>
+    <p>Uploading at #{util.human_file_size __torrent?.uploadSpeed}/s</p>
+    <p>Uploaded #{util.human_file_size __torrent?.uploaded} for #{util.human_file_size total_size}</p>
+    <progress class='progress-bar' max="100" value="#{percentage}"> #{percentage}% </progress>
+    """
 
 status_section = $ 'section#status'
 
 set_status = () ->
     ($ '#file-size').html(util.human_file_size total_size)
     ($ '#file-count').html("<div>#{file_count}</div>")
-    # status_section.html status_html()
+    status_section.html status_html()

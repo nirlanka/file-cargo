@@ -1,10 +1,6 @@
-/* Fonts */
-
 body {
   font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
 }
-
-/* Full-page body */
 
 html,
 body {
@@ -18,15 +14,11 @@ body {
   padding: 10px;
 }
 
-/* Color definitions */
-
 :root {
   --bg-color: #1f3b58;
   --text-color: #ffffff;
   --box-text-color: #9A886C;
 }
-
-/* Colors */
 
 html,
 body {
@@ -34,11 +26,18 @@ body {
   color: var(--text-color);
 }
 
+a {
+  color: #aaa !important;
+}
+
 .file-select #file-size {
   color: var(--box-text-color);
 }
 
-/* Device-specific classes */
+.download-url code {
+  color: #aaa !important;
+  font-family: Menlo, Monaco, Consolas, monospace !important;
+}
 
 .mobile-view {
   display: none;
@@ -61,7 +60,9 @@ body {
   }
 }
 
-/* Utilities */
+body {
+  font-size: 14px;
+}
 
 .non-button {
   border: none;
@@ -83,10 +84,7 @@ body {
 
 .single-bg-img {
   background-repeat: no-repeat;
-
 }
-
-/* Spacing */
 
 .file-cargo-logo-wrapper {
   margin-bottom: 1rem;
@@ -96,18 +94,10 @@ body {
   padding-top: 1rem;
 }
 
-/* Text sizing */
-
-body {
-  font-size: 14px;
-}
-
 header {
   margin-top: 3rem;
   margin-bottom: 3rem;
 }
-
-/* Layout */
 
 .file-select {
   position: relative;
@@ -131,4 +121,29 @@ header {
   font-size: 12px;
   color: #fff;
   background-color: #D33636;
+}
+
+.status {
+  padding-bottom: 2rem;
+}
+
+#magnets {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+ul#magnets,
+ul#magnets-inner {
+  list-style: none;
+  margin-left: 0 !important;
+  padding-left: 8px;
+  text-indent: -1em;
+}
+
+footer {
+  margin-top: 4rem;
+}
+
+.cargo-box {
+  margin-top: 2rem;
 }
