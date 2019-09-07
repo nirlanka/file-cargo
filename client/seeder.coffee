@@ -4,14 +4,13 @@ $ = require "cash-dom"
 
 console.log 'Seeder script loaded.'
 
-drag_drop 'body', (files) ->
+seed_files = (files) ->
     client = new webtorrent()
     client.seed files, (torrent) ->
         if files.length == 1
             ($ 'ul#magnets').append """
                 <li>
                     <div><strong>#{files[0].name}</strong></div>
-                    <!--div><code>#{torrent.magnetURI}</code></div-->
                     <div><a href="download.html##{torrent.magnetURI}">Right-click and copy URL for download</a></div>
                 </li>
             """
@@ -21,8 +20,14 @@ drag_drop 'body', (files) ->
                     <ul>
                         #{([files...].map (f) -> '<li>' + f.name + '</li>').join ''}
                     </ul>
-                    <!--div><code>#{torrent.magnetURI}</code></div-->
                     <div><a href="download.html##{torrent.magnetURI}">Right-click and copy URL for download</a></div>
                 </li>
             """
+
+drag_drop 'body', seed_files
+
+($ 'input#file-input').on 'change', () ->
+    seed_files [this.files...]
         
+($ 'button#file-select').on 'click', () ->
+    ($ 'input#file-input')[0].click()
