@@ -1,6 +1,8 @@
 webtorrent = require "webtorrent"
 $ = require "cash-dom"
 
+util = require '../util'
+
 console.log 'Leach script loaded.'
 
 ($ 'button#download').prop 'disabled', true
@@ -42,13 +44,13 @@ if magnet != ''
 
 status_html = () -> 
     """
-    <div>Downloaded #{__torrent.downloaded} of #{total_size}</div>
-    <div>Downloading at #{__torrent.downloadSpeed}</div>
+    <div>Downloaded #{util.human_file_size __torrent.downloaded} of #{util.human_file_size total_size}</div>
+    <div>Downloading at #{ util.human_file_size __torrent.downloadSpeed}/s</div>
     """
 
 done_html = () ->
     """
-    <div>Downloaded #{total_size}</div>
+    <div>Downloaded #{util.human_file_size  total_size}</div>
     <div>Download complete.</div>
     """
 
