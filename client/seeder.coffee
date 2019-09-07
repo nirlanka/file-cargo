@@ -2,11 +2,17 @@ webtorrent = require "webtorrent"
 drag_drop = require "drag-drop"
 $ = require "cash-dom"
 
+util = require '../util'
+
 console.log 'Seeder script loaded.'
+
+__torrent = null
 
 seed_files = (files) ->
     client = new webtorrent()
     client.seed files, (torrent) ->
+        __torrent = torrent
+
         if files.length == 1
             ($ 'ul#magnets').append """
                 <li>
@@ -24,6 +30,8 @@ seed_files = (files) ->
                 </li>
             """
 
+    setInterval set_status, 500
+
 drag_drop 'body', seed_files
 
 ($ 'input#file-input').on 'change', () ->
@@ -31,3 +39,15 @@ drag_drop 'body', seed_files
         
 ($ 'button#file-select').on 'click', () ->
     ($ 'input#file-input')[0].click()
+
+status_html = () ->
+    """
+    <div>#{__torrent.numPeers} peers online</div>
+    <div>Uploaded #{util.human_file_size __torrent.uploaded}</div>
+    <div>Uploading at #{util.human_file_size __torrent.uploadSpeed}/s</div>
+    """
+
+status_section = $ 'section#status'
+
+set_status = () ->
+    status_section.html status_html()
