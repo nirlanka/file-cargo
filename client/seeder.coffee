@@ -22,12 +22,22 @@ seed_files = (files) ->
         total_size = (files.map (f) -> f.size).reduce ((a, b) -> a + b), 0
         file_count = files.length
 
-        ($ 'ul#magnets').append """
-            <li>
-                <div><strong>#{files[0].name}</strong></div>
-                <div><a href="download.html##{torrent.magnetURI}">Right-click and copy URL for download</a></div>
-            </li>
-        """
+        if files.length == 1
+            ($ 'ul#magnets').html """
+                <li>
+                    <div><strong>#{files[0].name}</strong></div>
+                    <div><a href="download.html##{torrent.magnetURI}">Right-click and copy URL for download</a></div>
+                </li>
+            """
+        else
+            ($ 'ul#magnets').html """
+                <li>
+                    <ul>
+                        #{([files...].map (f) -> '<li>' + f.name + '</li>').join ''}
+                    </ul>
+                    <div><a href="download.html##{torrent.magnetURI}">Right-click and copy URL for download</a></div>
+                </li>
+            """
       
     setInterval set_status, 800
 
