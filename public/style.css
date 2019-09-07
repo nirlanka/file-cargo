@@ -90,7 +90,7 @@ body {
   margin-bottom: 1rem;
 }
 
-#file-select {
+#file-select, #download {
   padding-top: 1rem;
 }
 
@@ -133,7 +133,8 @@ header {
 }
 
 ul#magnets,
-ul#magnets-inner {
+ul#magnets-inner,
+ul#files {
   list-style: none;
   margin-left: 0 !important;
   padding-left: 8px;
@@ -146,4 +147,12 @@ footer {
 
 .cargo-box {
   margin-top: 2rem;
+}
+
+#files {
+  margin: 3rem 0;
+}
+
+#status {
+  margin-bottom: 3rem;
 }

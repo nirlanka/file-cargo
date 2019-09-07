@@ -36,22 +36,26 @@ if magnet != ''
         __torrent = torrent
 
         files = [torrent.files...]
-        ($ 'ul#files').append (files.map (f) -> "<li>#{f.name}</li>").join ''
+        ($ 'ul#files').html (files.map (f) -> "<li><strong>#{f.name}</strong></li>").join ''
         
         ($ 'button#download').prop 'disabled', false
 
         total_size = (files.map (f) -> f.length).reduce ((a, b) -> a + b), 0
 
 status_html = () -> 
+    percentage = __torrent?.downloaded/total_size*100
     """
-    <div>Downloaded #{util.human_file_size __torrent.downloaded} of #{util.human_file_size total_size}</div>
-    <div>Downloading at #{ util.human_file_size __torrent.downloadSpeed}/s</div>
+    <p>Downloading at #{ util.human_file_size __torrent?.downloadSpeed}/s</p>
+    <p>Downloaded #{util.human_file_size __torrent?.downloaded} of #{util.human_file_size total_size}</p>
+    <progress class='progress-bar' max="100" value="#{percentage}"> #{percentage}% </progress>
     """
 
 done_html = () ->
+    percentage = __torrent?.downloaded/total_size*100
     """
-    <div>Downloaded #{util.human_file_size  total_size}</div>
-    <div>Download complete.</div>
+    <p>Downloaded #{util.human_file_size  total_size}</p>
+    <p>Download complete.</p>
+    <progress class='progress-bar' max="100" value="#{percentage}"> #{percentage}% </progress>
     """
 
 status_section = $ 'section#status'
@@ -61,6 +65,6 @@ is_download_done_status_shown = false
 set_status = () ->
     if not is_download_done
         status_section.html status_html()
-    else if not is_download_done_status_shown
+    if is_download_done and not is_download_done_status_shown
         status_section.html done_html()
         is_download_done_status_shown = true
