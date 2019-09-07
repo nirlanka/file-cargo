@@ -4,7 +4,8 @@
   "description": "Base template for Coffeescript server and front-end",
   "main": "server.coffee",
   "scripts": {
-    "start": "rm -rf public/dist/ && ./node_modules/.bin/webpack && coffee server.coffee"
+    "start": "rm -rf public/dist/ && ./node_modules/.bin/webpack && coffee server.coffee",
+    "dev": "rm -rf public/dist/ && ./node_modules/.bin/webpack --watch && coffee server.coffee"
   },
   "author": "Nir Lanka",
   "license": "ISC",
