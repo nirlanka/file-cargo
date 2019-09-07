@@ -8,6 +8,7 @@ console.log 'Leach script loaded.'
 ($ 'button#download').prop 'disabled', true
 
 total_size = 0
+file_count = 0
 is_download_done = false
 
 ($ 'button#download').on 'click', (event) ->
@@ -41,6 +42,10 @@ if magnet != ''
         ($ 'button#download').prop 'disabled', false
 
         total_size = (files.map (f) -> f.length).reduce ((a, b) -> a + b), 0
+        file_count = files.length
+
+        ($ '#file-size').html(util.human_file_size total_size)
+        ($ '#file-count').html("<div>#{file_count}</div>")
 
 status_html = () -> 
     percentage = __torrent?.downloaded/total_size*100

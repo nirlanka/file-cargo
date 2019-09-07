@@ -22,12 +22,15 @@ seed_files = (files) ->
         total_size = (files.map (f) -> f.size).reduce ((a, b) -> a + b), 0
         file_count = files.length
 
+        ($ '#file-size').html(util.human_file_size total_size)
+        ($ '#file-count').html("<div>#{file_count}</div>")
+
         if files.length == 1
             ($ 'ul#magnets').html """
                 <li>
                     <div><strong>#{files[0].name}</strong></div>
                     <br>
-                    <p>Copy the link, or tap to share</p>
+                    <p>Copy and share below link</p>
                     <div class='download-url'><a href="download.html##{torrent.magnetURI}"><code>#{window.location.hostname}/download.html##{torrent.magnetURI.substr 0, 45}...</code></a></div>
                 </li>
             """
@@ -38,7 +41,7 @@ seed_files = (files) ->
                         #{([files...].map (f) -> '<li><strong>' + f.name + '</strong></li>').join ''}
                     </ul>
                     <br>
-                    <p>Copy the link, or tap to share</p>
+                    <p>Copy and share below link</p>
                     <div class='download-url'><a href="download.html##{torrent.magnetURI}"><code>#{window.location.hostname}/download.html##{torrent.magnetURI.substr 0, 45}...</code></a></div>
                 </li>
             """
@@ -65,6 +68,4 @@ status_html = () ->
 status_section = $ 'section#status'
 
 set_status = () ->
-    ($ '#file-size').html(util.human_file_size total_size)
-    ($ '#file-count').html("<div>#{file_count}</div>")
     status_section.html status_html()
