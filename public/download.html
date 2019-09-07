@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>coffee-serve</title>
+    <title>File Cargo - Download</title>
     <meta name="description" content="Base template for Coffeescript server and front-end">
     <link id="favicon" rel="icon" href="/favicon.ico" type="image/x-icon">
     <meta charset="utf-8">
@@ -10,29 +10,42 @@
     <link rel="stylesheet" href="/style.css">
   </head>
   <body>
-    <header>
-      <h1>
-        live torrent
+    <header class="center-text">
+      <h1 class="hidden" >
+        File Cargo
       </h1>
-      <p id="magnet-status"></p>
+      <div class="file-cargo-logo-wrapper">
+        <img src="logo.svg" id="file-cargo-log" width="200" height="25">
+      </div>
+
+      <p class="desktop-view">
+        Click the cargo box to download files
+      </p>
+      <p class="mobile-view">
+        Click the cargo box to download files
+      </p>
     </header>
 
-    <section>
+    <section class="center-text">
       <div><code id="magnet"></code></div>
       
-      <ul id="files"></ul>
+      <ul id="files">Loading file names...</ul>
 
-      <button id="download">Download</button>
+      <button id="download" class="non-button file-select">
+        <div class="single-bg-img" style="background-image: url(cargo-box.svg); width: 135px; height: 106.5px;">
+          &nbsp;
+        </div>
+        <div id="file-size">&nbsp;</div>
+        <div id="file-count"></div>
+      </button>
     </section>
 
     <div>&nbsp;</div>
 
-    <section id="status"></section>
+    <section id="status" class="center-text"></section>
 
-    <div>&nbsp;</div>
-
-    <footer>
-      &copy; Nir Lanka 2019
+    <footer class="center-text">
+      <a href="//github.com/nirlanka">github.com/nirlanka</a>
     </footer>
 
     <script src="/dist/libs.js"></script>

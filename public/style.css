@@ -1,5 +1,5 @@
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
 }
 
 html,
@@ -10,6 +10,149 @@ body {
 }
 
 body {
-    box-sizing: border-box;
-    padding: 10px;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+:root {
+  --bg-color: #1f3b58;
+  --text-color: #ffffff;
+  --box-text-color: #9A886C;
+}
+
+html,
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+a {
+  color: #aaa !important;
+}
+
+.file-select #file-size {
+  color: var(--box-text-color);
+}
+
+.download-url code {
+  color: #aaa !important;
+  font-family: Menlo, Monaco, Consolas, monospace !important;
+}
+
+.mobile-view {
+  display: none;
+  width: 0;
+  height: 0;
+}
+.desktop-view {
+  display: unset;
+}
+
+@media (max-width: 767px) {
+  .mobile-view {
+    display: unset;
+  }
+
+  .desktop-view {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+}
+
+body {
+  font-size: 14px;
+}
+
+.non-button {
+  border: none;
+  background: none;
+  box-shadow: none;
+}
+
+.hidden {
+  visibility: hidden;
+  width: 0;
+  height: 0;
+  display: inline;
+  font-size: 0;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.single-bg-img {
+  background-repeat: no-repeat;
+}
+
+.file-cargo-logo-wrapper {
+  margin-bottom: 1rem;
+}
+
+#file-select, #download {
+  padding-top: 1rem;
+}
+
+header {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.file-select {
+  position: relative;
+}
+.file-select #file-size {
+  position: absolute;
+  width: 135px;
+  text-align: center;
+  top: 52px;
+  box-sizing: border-box;
+  margin-left: 2px;
+  font-size: 14px;
+}
+.file-select #file-count>div {
+  position: absolute;
+  right: 12px;
+  top: 4px;
+  border-radius: 12px;
+  border: 1px solid white;
+  padding: 2px 6px;
+  font-size: 12px;
+  color: #fff;
+  background-color: #D33636;
+}
+
+.status {
+  padding-bottom: 2rem;
+}
+
+#magnets {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+ul#magnets,
+ul#magnets-inner,
+ul#files {
+  list-style: none;
+  margin-left: 0 !important;
+  padding-left: 8px;
+  text-indent: -1em;
+}
+
+footer {
+  margin-top: 4rem;
+}
+
+.cargo-box {
+  margin-top: 2rem;
+}
+
+#files {
+  margin: 3rem 0;
+}
+
+#status {
+  margin-bottom: 3rem;
 }
