@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>coffee-serve</title>
+    <title>File Cargo</title>
     <meta name="description" content="Base template for Coffeescript server and front-end">
     <link id="favicon" rel="icon" href="/favicon.ico" type="image/x-icon">
     <meta charset="utf-8">
@@ -10,30 +10,46 @@
     <link rel="stylesheet" href="/style.css">
   </head>
   <body>
-    <header>
-      <h1>
-        live torrent
+    <header class="center-text">
+      <h1 class="hidden" >
+        File Cargo
       </h1>
-      <p>
-        Drag-and-drop one or many files here to serve.
-      </p>
-      <div>
-        <button id="file-select">Or select files</button>
-        <input id="file-input" type="file" name="name" style="display: none;" multiple="multiple" />
+      <div class="file-cargo-logo-wrapper">
+        <img src="logo.svg" id="file-cargo-log" width="200" height="25">
       </div>
+
+      <p class="desktop-view">
+        Drag & drop one or many files here
+      </p>
+      <p class="mobile-view">
+        Tap the cargo box to select files
+      </p>
+
     </header>
 
-    <section>
+    <section class="center-text">
+      <input id="file-input" type="file" name="name" style="display: none;" multiple="multiple" />
+      
+      <button id="file-select" class="non-button file-select">
+        <div class="single-bg-img" style="background-image: url(cargo-box.svg); width: 135px; height: 106.5px;">
+          &nbsp;
+        </div>
+        <div id="file-size">&nbsp;</div>
+        <div id="file-count"></div>
+      </button>
+    </section>
+
+    <section class="center-text">
       <ul id="magnets"></ul>
     </section>
 
     <div>&nbsp;</div>
 
-    <section id="status"></section>
+    <section id="status" class="center-text"></section>
 
     <div>&nbsp;</div>
 
-    <footer>
+    <footer class="center-text">
       &copy; Nir Lanka 2019
     </footer>
 
