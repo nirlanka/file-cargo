@@ -1,20 +1,12 @@
 module.exports = {
     mode: "development" || "production",
-    module: {
-        rules: [
-            {
-                test: /\.coffee$/,
-                loader: "coffee-loader"
-            }
-        ]
-    },
     resolve: {
-        extensions: [".web.coffee", ".web.js", ".coffee", ".js"]
+        extensions: [ ".web.js", ".js"]
     },
 
     entry: {
-        leach: __dirname + "/client/leach.coffee",
-        seeder: __dirname + "/client/seeder.coffee"
+        leach: __dirname + "/client/leach.js",
+        seeder: __dirname + "/client/seeder.js"
     },
     output: {
         path: __dirname + "/public/dist",
