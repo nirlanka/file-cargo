@@ -1,7 +1,7 @@
-coffee-site
-===========
+file-cargo-js
+=============
 
-Base template for Coffeescript server and front-end
+Javascript version of File Cargo source code
 
 ## Starting server
 
@@ -9,19 +9,15 @@ Base template for Coffeescript server and front-end
 
 Install NodeJS and Git.
 
-Then run:
-
-```bash
-npm i -g coffeescript
-```
-
 ### Download source
 
 Run:
 
 ```bash
-git clone https://github.com/NirmalL/coffee-site.git
-cd coffee-script
+git clone https://github.com/nirlanka/file-cargo.git
+cd file-cargo
+git checkout master-js
+git pull
 npm i
 ```
 
@@ -32,10 +28,6 @@ Run:
 ```bash
 npm start
 ```
-
-## Origin
-
-This code is based on code found at [glitch.com coffee-script-base](https://glitch.com/edit/#!/project/coffee-script-base).
 
 ## Feedback
 
