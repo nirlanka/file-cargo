@@ -1,7 +1,7 @@
-coffee-site
-===========
+file-cargo
+==========
 
-Base template for Coffeescript server and front-end
+WebTorrent/WebRTC based file share app.
 
 ## Starting server
 
@@ -32,10 +32,6 @@ Run:
 ```bash
 npm start
 ```
-
-## Origin
-
-This code is based on code found at [glitch.com coffee-script-base](https://glitch.com/edit/#!/project/coffee-script-base).
 
 ## Feedback
 
