@@ -3,6 +3,10 @@ file-cargo
 
 WebTorrent/WebRTC based file share app.
 
+## JavaScript version
+
+To see the code without any Coffeescript, go to [master-js](https://github.com/nirlanka/file-cargo/tree/master-js) branch.
+
 ## Starting server
 
 ### Prerequisites
