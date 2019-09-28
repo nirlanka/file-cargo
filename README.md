@@ -1,7 +1,11 @@
-coffee-site
-===========
+file-cargo
+==========
 
-Base template for Coffeescript server and front-end
+WebTorrent/WebRTC based file share app.
+
+## JavaScript version
+
+To see the code without any Coffeescript, go to [master-js](https://github.com/nirlanka/file-cargo/tree/master-js) branch.
 
 ## Starting server
 
@@ -32,10 +36,6 @@ Run:
 ```bash
 npm start
 ```
-
-## Origin
-
-This code is based on code found at [glitch.com coffee-script-base](https://glitch.com/edit/#!/project/coffee-script-base).
 
 ## Feedback
 
