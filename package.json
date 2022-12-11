@@ -16,7 +16,7 @@
     "coffeeify": "3.0.1",
     "coffeescript": "2.4.1",
     "drag-drop": "5.0.1",
-    "express": "4.17.1",
+    "express": "4.17.3",
     "webpack": "^4.39.3",
     "webpack-cli": "^3.3.8",
     "webtorrent": "0.107.7"
